@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  userstore:
+    depends_on:
+      - store.db
+    image: userstore:latest
+    ports:
+      - 8080:8080
+    build:
+      context: .
+      dockerfile: UserStore/Dockerfile
+    links:
+      - "store.db:database"
+  store.db:
+    image: ${MSSQL_IMAGE:-mcr.microsoft.com/mssql/server:latest}
+    ports: 
+    - 1433:1433
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: ${MSSQL_PRODUCT_ID:-Developer}
+      SA_PASSWORD: "A9ZA9Z1!"
