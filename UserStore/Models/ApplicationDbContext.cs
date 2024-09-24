@@ -9,6 +9,7 @@ namespace UserStore.Models
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
         public DbSet<User> users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -35,13 +35,13 @@ namespace UserStore.Models
         /// Дата рождения
         /// </summary>
         [DisplayName("Дата рождения")]
-        public DateTime? DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
 
         /// <summary>
         /// Номер паспорта(вместе с серией в формате ХХХХ ХХХХХХ)
         /// </summary>
         [DisplayName("Номер паспорта")]
-        [UIHint("Number")]
+        [Length(10, 10, ErrorMessage = "Поле должно содержать 10 символов"), UIHint("Number")]
         public int? PassportNumber { get; set; }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace UserStore.Models
         /// Телефон(в формате 7ХХХХХХХХХХ)
         /// </summary>
         [DisplayName("Телефон")]
-        [DataType(DataType.PhoneNumber)]
+        [DataType(DataType.PhoneNumber), Length(11, 11, ErrorMessage = "Поле должно содержать 10 символов")]
         public float? Phone { get; set; }
 
         /// <summary>
