@@ -105,7 +105,7 @@ namespace UserStore.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> Search(string? surname, string? name, string? patronymic, float? phone, string? email)
+        public async Task<ActionResult<IEnumerable<User>>> Search(string? surname, string? name, string? patronymic, string? phone, string? email)
         {
             var user = _context.users.AsQueryable();
             if (surname != null)
