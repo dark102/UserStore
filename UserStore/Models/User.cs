@@ -42,7 +42,7 @@ namespace UserStore.Models
         /// </summary>
         [DisplayName("Номер паспорта")]
         [Length(10, 10, ErrorMessage = "Поле должно содержать 10 символов"), UIHint("Number")]
-        public int? PassportNumber { get; set; }
+        public int? PassportNumber { get; set; } = 0;
 
         /// <summary>
         /// Место рождения
